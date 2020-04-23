@@ -55,8 +55,7 @@ export default class CalculatorController {
     beep() {
         const t = setTimeout(() => {
             BeepSound.play().then(_ => clearTimeout(t));
-        }, 50);
-        console.log('beep()');
+        }, 5);
     }
 
 
@@ -64,7 +63,6 @@ export default class CalculatorController {
 
         const _display = this.history.entry ? this.history.entry : this.history.memory;
         const _displayStr = _display.toString();
-        console.log('display unformated: ', _displayStr)
         const _dot = this.history.isDecimal && _display.toString().indexOf('.') === -1 ? '.' : '';
         
         const intPartLength = _displayStr.split('.')[0].length;
@@ -86,7 +84,7 @@ export default class CalculatorController {
 
             result = `${first}.${second}e${intPartLength  - 1}`
         }
-        console.log('display formated: ', result)
+        
 
         return result;
     }
@@ -161,7 +159,6 @@ export default class CalculatorController {
 
         }
         if (!parse.isNumber) {
-            console.log('currentOperation is null', this.currentOperation === nullOperation)
             let result = null;
             if ((this.currentOperation !== nullOperation)) {
                 result = this.currentOperation(this.history.memory, this.history.entry);
@@ -172,7 +169,6 @@ export default class CalculatorController {
                 result = this.history.entry;
             }
             this.currentOperation = key.executeOperation;
-            console.log('result', result);
             if (result !== null && result !== undefined) {
                 this.history.setMemory(result);
                 this.history.clearEntry();            
