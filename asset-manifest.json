@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/leonibr/react-calculator/tree/gh-pages/static/css/main.f7ad6c31.chunk.css",
-    "main.js": "/leonibr/react-calculator/tree/gh-pages/static/js/main.abd0f789.chunk.js",
-    "main.js.map": "/leonibr/react-calculator/tree/gh-pages/static/js/main.abd0f789.chunk.js.map",
-    "runtime-main.js": "/leonibr/react-calculator/tree/gh-pages/static/js/runtime-main.ecfb82ff.js",
-    "runtime-main.js.map": "/leonibr/react-calculator/tree/gh-pages/static/js/runtime-main.ecfb82ff.js.map",
-    "static/js/2.f6a01af3.chunk.js": "/leonibr/react-calculator/tree/gh-pages/static/js/2.f6a01af3.chunk.js",
-    "static/js/2.f6a01af3.chunk.js.map": "/leonibr/react-calculator/tree/gh-pages/static/js/2.f6a01af3.chunk.js.map",
-    "index.html": "/leonibr/react-calculator/tree/gh-pages/index.html",
-    "precache-manifest.1894d751b17d9f28068d34e26d9d86fc.js": "/leonibr/react-calculator/tree/gh-pages/precache-manifest.1894d751b17d9f28068d34e26d9d86fc.js",
-    "service-worker.js": "/leonibr/react-calculator/tree/gh-pages/service-worker.js",
-    "static/css/main.f7ad6c31.chunk.css.map": "/leonibr/react-calculator/tree/gh-pages/static/css/main.f7ad6c31.chunk.css.map",
-    "static/js/2.f6a01af3.chunk.js.LICENSE.txt": "/leonibr/react-calculator/tree/gh-pages/static/js/2.f6a01af3.chunk.js.LICENSE.txt"
+    "main.css": "/react-calculator/static/css/main.f7ad6c31.chunk.css",
+    "main.js": "/react-calculator/static/js/main.4b1b2893.chunk.js",
+    "main.js.map": "/react-calculator/static/js/main.4b1b2893.chunk.js.map",
+    "runtime-main.js": "/react-calculator/static/js/runtime-main.88fccc5f.js",
+    "runtime-main.js.map": "/react-calculator/static/js/runtime-main.88fccc5f.js.map",
+    "static/js/2.f6a01af3.chunk.js": "/react-calculator/static/js/2.f6a01af3.chunk.js",
+    "static/js/2.f6a01af3.chunk.js.map": "/react-calculator/static/js/2.f6a01af3.chunk.js.map",
+    "index.html": "/react-calculator/index.html",
+    "precache-manifest.567088d001de9f3f1dc88966a514df66.js": "/react-calculator/precache-manifest.567088d001de9f3f1dc88966a514df66.js",
+    "service-worker.js": "/react-calculator/service-worker.js",
+    "static/css/main.f7ad6c31.chunk.css.map": "/react-calculator/static/css/main.f7ad6c31.chunk.css.map",
+    "static/js/2.f6a01af3.chunk.js.LICENSE.txt": "/react-calculator/static/js/2.f6a01af3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ecfb82ff.js",
+    "static/js/runtime-main.88fccc5f.js",
     "static/js/2.f6a01af3.chunk.js",
     "static/css/main.f7ad6c31.chunk.css",
-    "static/js/main.abd0f789.chunk.js"
+    "static/js/main.4b1b2893.chunk.js"
   ]
 }
