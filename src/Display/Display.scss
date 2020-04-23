@@ -1,0 +1,21 @@
+﻿@import '../variables';
+
+.display-container {
+    background-color: rgb(82,82,82);
+    color: #fff;
+    font-weight: 100;
+    font-size: 3.5rem;
+    text-align: right;
+    max-width: 50vw;
+    min-width: 420px;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+   
+}
+
+.display-container span {
+    display: block;
+    padding: 30px 10px 5px 10px;
+    overflow: hidden;
+}

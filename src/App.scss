@@ -1,0 +1,20 @@
+
+@import 'variables';
+
+
+.app-header{
+    border: 1px solid #ccc;
+    box-shadow: 0.55rem 0.55rem 1rem #ccc;
+    background-color: #fff;
+    padding: 1.5rem 1rem;
+    padding-left: $padding-container;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.app-container {
+    margin-top: 0.55rem;
+    padding-right: $padding-container;
+    padding-left: $padding-container;
+
+}
