@@ -111,6 +111,7 @@ export default class CalculatorController {
     }
 
     receiveKey = (key: Key) => {
+        this.beep();
         if (key.caption === '%' && this.history.memory > 0 && this.history.entry) {
             const percent = (this.history.entry / 100) * this.history.memory;
             this.history.updateEntry(percent);

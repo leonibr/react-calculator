@@ -8,8 +8,23 @@
     background-color: #fff;
     padding: 1.5rem 1rem;
     padding-left: $padding-container;
+    padding-right: $padding-container;
     font-size: 1.5rem;
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+
+    & a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        &:hover {
+            color: #666;
+            fill:  #666;
+        }
+    }
+
+
 }
 
 .app-container {
