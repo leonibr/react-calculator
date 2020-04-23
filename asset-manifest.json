@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/leonibr/react-calculator/static/css/main.f7ad6c31.chunk.css",
-    "main.js": "/leonibr/react-calculator/static/js/main.06356e6f.chunk.js",
-    "main.js.map": "/leonibr/react-calculator/static/js/main.06356e6f.chunk.js.map",
-    "runtime-main.js": "/leonibr/react-calculator/static/js/runtime-main.04851f4b.js",
-    "runtime-main.js.map": "/leonibr/react-calculator/static/js/runtime-main.04851f4b.js.map",
-    "static/js/2.f6a01af3.chunk.js": "/leonibr/react-calculator/static/js/2.f6a01af3.chunk.js",
-    "static/js/2.f6a01af3.chunk.js.map": "/leonibr/react-calculator/static/js/2.f6a01af3.chunk.js.map",
-    "index.html": "/leonibr/react-calculator/index.html",
-    "precache-manifest.fc06a98e06e772784e20f5cc5ad02287.js": "/leonibr/react-calculator/precache-manifest.fc06a98e06e772784e20f5cc5ad02287.js",
-    "service-worker.js": "/leonibr/react-calculator/service-worker.js",
-    "static/css/main.f7ad6c31.chunk.css.map": "/leonibr/react-calculator/static/css/main.f7ad6c31.chunk.css.map",
-    "static/js/2.f6a01af3.chunk.js.LICENSE.txt": "/leonibr/react-calculator/static/js/2.f6a01af3.chunk.js.LICENSE.txt"
+    "main.css": "/leonibr/react-calculator/tree/gh-pages/static/css/main.f7ad6c31.chunk.css",
+    "main.js": "/leonibr/react-calculator/tree/gh-pages/static/js/main.abd0f789.chunk.js",
+    "main.js.map": "/leonibr/react-calculator/tree/gh-pages/static/js/main.abd0f789.chunk.js.map",
+    "runtime-main.js": "/leonibr/react-calculator/tree/gh-pages/static/js/runtime-main.ecfb82ff.js",
+    "runtime-main.js.map": "/leonibr/react-calculator/tree/gh-pages/static/js/runtime-main.ecfb82ff.js.map",
+    "static/js/2.f6a01af3.chunk.js": "/leonibr/react-calculator/tree/gh-pages/static/js/2.f6a01af3.chunk.js",
+    "static/js/2.f6a01af3.chunk.js.map": "/leonibr/react-calculator/tree/gh-pages/static/js/2.f6a01af3.chunk.js.map",
+    "index.html": "/leonibr/react-calculator/tree/gh-pages/index.html",
+    "precache-manifest.1894d751b17d9f28068d34e26d9d86fc.js": "/leonibr/react-calculator/tree/gh-pages/precache-manifest.1894d751b17d9f28068d34e26d9d86fc.js",
+    "service-worker.js": "/leonibr/react-calculator/tree/gh-pages/service-worker.js",
+    "static/css/main.f7ad6c31.chunk.css.map": "/leonibr/react-calculator/tree/gh-pages/static/css/main.f7ad6c31.chunk.css.map",
+    "static/js/2.f6a01af3.chunk.js.LICENSE.txt": "/leonibr/react-calculator/tree/gh-pages/static/js/2.f6a01af3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.04851f4b.js",
+    "static/js/runtime-main.ecfb82ff.js",
     "static/js/2.f6a01af3.chunk.js",
     "static/css/main.f7ad6c31.chunk.css",
-    "static/js/main.06356e6f.chunk.js"
+    "static/js/main.abd0f789.chunk.js"
   ]
 }
