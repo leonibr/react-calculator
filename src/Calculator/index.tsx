@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Keyboard from "../Keyboard";
 import Display from "../Display";
 import Key from "../model/Key";

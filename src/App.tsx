@@ -11,7 +11,7 @@ function App() {
         <label>React Calculator</label>
         
         <label>
-        <a href="https://github.com/leonibr/react-calculator" target="_blank">
+        <a href="https://github.com/leonibr/react-calculator" target="_blank"  rel="noopener noreferrer">
           <GitLogo size={18}/> Source Code</a></label>
       </div>
       <div className="app-container">       

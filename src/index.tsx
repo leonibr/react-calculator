@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import Calculator from './Calculator';
 import App from './App';
 
 ReactDOM.render(

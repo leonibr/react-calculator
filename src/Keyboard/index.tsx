@@ -3,11 +3,7 @@
 import './keyboard.scss';
 import { AppKeyType } from '../model/AppKeyType';
 import Key from '../model/Key';
-import { addOperation } from '../model/addOperation';
-import { subtractOperation } from '../model/subtractOperation';
-import { multiplyOperation } from '../model/multiplyOperation';
-import { divisionOperation } from '../model/divisionOperation';
-import { allClearOperation } from '../model/allClearOperation';
+
 
 
 
