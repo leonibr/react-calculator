@@ -15,6 +15,14 @@ Know issues:
 
 1. equal sign change state
 
+## Getting Started
+
+```bash
+> git clone https://github.com/leonibr/react-calculator.git
+> cd react-calculator
+> npm install
+> npm start
+```
 
 ## Screen
 ![asdf](print.png)
