@@ -27,7 +27,7 @@ export default class Keyboard extends Component<KeyboarProps, KeyboardState>{
     }
 
     mountedClass = (item: Key) => 
-    (item.span === 1? 'key': 'key unit-2')
+    (item.columnSpan === 1? 'key': 'key unit-2')
       + (item.keyType === AppKeyType.Operation ? ' operation' :  '');
 
     readResult = (pressedKey : Key ) => {
