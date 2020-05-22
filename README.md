@@ -2,13 +2,24 @@
 ## React Calculator
 
 Simple Calculator program to learn study React using typescript.
-## Click to see the [Live Demo](https://leonibr.github.io/react-calculator/)
-### This is a working in progress.
+
+## Click to [Live Demo](https://leonibr.github.io/react-calculator/)
+
+## Getting Started
+
+```bash
+> git clone https://github.com/leonibr/react-calculator.git
+> cd react-calculator
+> npm install
+> npm start
+```
+## Screen
+![asdf](print.png)
 
 Using:
 
-1. React
-1. Unit tests
+1. React - `create-react-app`
+1. Unit tests - jest
 ```javascript
 test('After division entry must be null', () => {
     const history = new HistoryApp();
@@ -34,21 +45,12 @@ test('After division entry must be null', () => {
   & > .keyboard {
     display: grid;
     width: 100%;
+// ...
 ```
 1. Integrate beep on keypress
 
 
-## Getting Started
 
-```bash
-> git clone https://github.com/leonibr/react-calculator.git
-> cd react-calculator
-> npm install
-> npm start
-```
-
-## Screen
-![asdf](print.png)
 
 
 ## License

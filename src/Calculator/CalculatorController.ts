@@ -110,9 +110,7 @@ export default class CalculatorController {
     handleIncomingKey(key: Key) {
         this.beep();
         switch (key.keyType) {
-
             case AppKeyType.Operation:
-
                 switch (key.operation) {
                     case allClearOperation:
                         this.currentOperation = nullOperation;
@@ -120,12 +118,9 @@ export default class CalculatorController {
                         this.reRender();
                         return;
                     case percentOperation:
-
                         this.history = percentOperation(this.history);
                         this.reRender();
                         return;
-
-
                     case addOperation:
                     case subtractOperation:
                     case multiplyOperation:
@@ -151,7 +146,6 @@ export default class CalculatorController {
                 this.history.updateEntryFromKey(key);
                 break;
             default:
-
                 break;
         }
         this.reRender();
