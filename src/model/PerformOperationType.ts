@@ -1,1 +1,5 @@
-export type PerformOperationType = (n1: number, n2: number | null) => number | undefined;
+
+import HistoryApp from "./History";
+
+
+export type PerformOperationType = (history: HistoryApp) => HistoryApp;

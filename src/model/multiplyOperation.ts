@@ -1,8 +1,14 @@
+import { roundId } from './../Util/roundIt';
 import { PerformOperationType } from './PerformOperationType';
 
 
 export const multiplyOperation: PerformOperationType =
-    (first: number, second: number | null) => {
-        if (second === null) second = 1;
-        return first * second;
+    (history) => {
+        const n1 = history.memory;
+        const n2 = history.entry ? history.entry : 1;
+        const result = roundId(n1 * n2);
+                
+        history.setMemory(result);
+        history.clearEntry();
+        return history;
     }

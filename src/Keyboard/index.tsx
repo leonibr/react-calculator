@@ -1,7 +1,6 @@
 ﻿import React, { Component } from 'react';
 
 import './keyboard.scss';
-import { AppKeyType } from '../model/AppKeyType';
 import Key from '../model/Key';
 
 
@@ -19,16 +18,19 @@ type KeyboardState = {
 
 export default class Keyboard extends Component<KeyboarProps, KeyboardState>{
 
+
+    constructor(props: KeyboarProps, state: KeyboardState) {
+        super(props, state);
+        this.keyboard = this.props.keyboard;        
+        
+    }
         
     keyboard: Key[] = [];
 
-    componentWillMount() {
-        this.keyboard = this.props.keyboard;
-    }
 
-    mountedClass = (item: Key) => 
-    (item.columnSpan === 1? 'key': 'key unit-2')
-      + (item.keyType === AppKeyType.Operation ? ' operation' :  '');
+
+    mountedClass = (item: Key) => (item.css);
+
 
     readResult = (pressedKey : Key ) => {
         this.props.pressedKey(pressedKey);

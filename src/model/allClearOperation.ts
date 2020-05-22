@@ -1,7 +1,9 @@
 
 import { PerformOperationType } from './PerformOperationType';
+import HistoryApp from './History';
 
 
-export const allClearOperation: PerformOperationType = (_, __) => {
-    return 0.0;
+export const allClearOperation: PerformOperationType = (history) => {
+    history = new HistoryApp();
+    return history;
 }

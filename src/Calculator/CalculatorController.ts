@@ -1,3 +1,5 @@
+import { percentOperation } from './../model/percentOperation';
+import { nullOperation, equalOperation } from './../model/nullOperation';
 import { allClearOperation } from './../model/allClearOperation';
 import { PerformOperationType } from './../model/PerformOperationType';
 import { BeepSound } from './BeepSound';
@@ -8,51 +10,66 @@ import { subtractOperation } from '../model/subtractOperation';
 import { multiplyOperation } from '../model/multiplyOperation';
 import { divisionOperation } from '../model/divisionOperation';
 import HistoryApp from '../model/History';
+import { AppKeyType } from '../model/AppKeyType';
 
-const nullOperation: PerformOperationType = (p, __) => p;
+
 
 export default class CalculatorController {
 
-    keys: Key[] = []
-    history= new HistoryApp();
-        
-    
+    keys: Key[] = [];
+    history = new HistoryApp();
+
     private currentOperation: PerformOperationType = nullOperation;
 
     constructor() {
         this.loadKeys();
-
     }
 
 
+    /**
+     * Callback to inform the UI to re-render, it needs to be informed by the YI
+     */
+    reRender: () => void = () => null;
 
-    update: () => void = () => null;
+    /**
+    * Method to populate the keys: Array<Key>            
+    * */
+    private loadKeys() {
 
-
-    loadKeys() {
-
-        const isOps = ((key: string) => ['AC', '/', 'x', '-', '+', '='].filter(c => c === key).length === 1);
+        const isOps = ((key: string) => ['AC', '/', 'x', '-', '+', '=', '%'].filter(c => c === key).length === 1);
         const stringKeys = 'AC:2;%;/;7;8;9;x;4;5;6;-;1;2;3;+;0:2;.;='.split(';');
         this.keys = stringKeys.map((k) => {
-            const span = k.indexOf(':2') > 0 ? 2 : 1;
+            const span = k.indexOf(':') > 0 ? +k.split(':')[1] : 1;
             const label = k.indexOf(':') > 0 ? k.split(':')[0] : k;
 
             const operation = (key: string) => {
                 if (key === '+') return addOperation;
+                if (key === '%') return percentOperation;
                 if (key === '-') return subtractOperation;
                 if (key === 'x') return multiplyOperation;
                 if (key === '/') return divisionOperation;
                 if (key === 'AC') return allClearOperation;
+                if (key === '=') return equalOperation;
+                throw new Error('Key not found for this operation');
+
             }
+
             const tempKey = isOps(label) ? Key.fromOperation(label, span, operation(label)) : Key.fromNumber(label, span);
 
+            if (tempKey.hasOperationDefined && tempKey.caption !== '%') {
+                tempKey.bgTheme = 'bg-organge';
+            }   
+           
             return tempKey;
         });
     }
 
 
 
-    beep() {
+    /**
+     * Emmits a beep sound when executed
+     */
+    private beep() {
         const t = setTimeout(() => {
             BeepSound.play().then(_ => clearTimeout(t));
         }, 5);
@@ -64,7 +81,7 @@ export default class CalculatorController {
         const _display = this.history.entry ? this.history.entry : this.history.memory;
         const _displayStr = _display.toString();
         const _dot = this.history.isDecimal && _display.toString().indexOf('.') === -1 ? '.' : '';
-        
+
         const intPartLength = _displayStr.split('.')[0].length;
         let decPartLength = 0;
         if (_display.toString().indexOf('.') >= 0) {
@@ -82,102 +99,61 @@ export default class CalculatorController {
             const second = (sIntPart.substring(1, sIntPart.length) + sDecPart).substring(0, 9);
 
 
-            result = `${first}.${second}e${intPartLength  - 1}`
+            result = `${first}.${second}e${intPartLength - 1}`
         }
-        
+
 
         return result;
     }
 
 
-    parseNum = (_value: string) => {
-        const hasDot = _value.indexOf('.') > 0;
-        const value = Number.parseFloat(_value);
-        const isNumber = !isNaN(value)
-        return {
-            value,
-            isNumber,
-            hasDot
-        }
-    }
-
-    executeKey(key: Key) {
-        const parse = this.parseNum(key.caption);
-        if (parse.isNumber) {
-            key.executeOperation(this.history.memory, this.history.entry);
-        }
-    }
-
-    receiveKey = (key: Key) => {
+    handleIncomingKey(key: Key) {
         this.beep();
-        if (key.caption === '%' && this.history.memory > 0 && this.history.entry) {
-            const percent = (this.history.entry / 100) * this.history.memory;
-            this.history.updateEntry(percent);
-            return;
-        }
-        if (key.caption === 'AC') {
-            this.history.reset();
-            this.currentOperation = nullOperation;
-            this.update();
-            return;
-        }
-        //this.beep();
-        //debugger;
-        let parse = this.parseNum(key.caption);
-        if (key.caption === '.') {
-            if (!parse.hasDot) {
-                this.history.isDecimal = true;
-            }
-            this.update();
-            return;
-        }
-        //this.executeKey(key);
-       
-        if (parse.isNumber) {
+        switch (key.keyType) {
 
-            if (this.history.entry) {
-                if (this.history.isDecimal 
-                        && (parseFloat(this.history.entry.toString()) === parseInt(this.history.entry.toString()))) {
-                    parse = this.parseNum(`${this.history.entry}.${parse.value}`);
+            case AppKeyType.Operation:
 
-                } else {
+                switch (key.operation) {
+                    case allClearOperation:
+                        this.currentOperation = nullOperation;
+                        this.history = allClearOperation(this.history);
+                        this.reRender();
+                        return;
+                    case percentOperation:
 
-                    parse = this.parseNum(`${this.history.entry}${parse.value}`);
+                        this.history = percentOperation(this.history);
+                        this.reRender();
+                        return;
+
+
+                    case addOperation:
+                    case subtractOperation:
+                    case multiplyOperation:
+                    case divisionOperation:
+                        this.history = this.currentOperation(this.history);
+                        if (this.history.entry) {
+                            this.history.setMemory(this.history.entry);
+                            this.history.clearEntry();
+                        }
+
+                        break;
+                    case equalOperation:
+                        this.history = this.currentOperation(this.history);
+
+                        break;
+                    default:
+                        break;
                 }
 
-            } else {
-                parse = this.parseNum(`${parse.value}`);
-                this.history.isDecimal = false;
-            }
+                this.currentOperation = key.operation ? key.operation : equalOperation;
+                break;
+            case AppKeyType.Number:
+                this.history.updateEntryFromKey(key);
+                break;
+            default:
 
-            const parseString = parse.value.toString();
-            if (parseString.length > 14) {
-                this.beep()
-                return;
-            }
-            this.history.updateEntry(parse.value);
-
+                break;
         }
-        if (!parse.isNumber) {
-            let result = null;
-            if ((this.currentOperation !== nullOperation)) {
-                result = this.currentOperation(this.history.memory, this.history.entry);
-                if (result) {
-                   result = Math.round(result * 1000000000000 )/ 1000000000000;
-                }
-            } else {
-                result = this.history.entry;
-            }
-            this.currentOperation = key.executeOperation;
-            if (result !== null && result !== undefined) {
-                this.history.setMemory(result);
-                this.history.clearEntry();            
-
-            }
-        }
-
-        this.update();
-    }
+        this.reRender();
+    } 
 }
-
-

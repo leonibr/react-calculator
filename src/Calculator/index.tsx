@@ -10,11 +10,11 @@ export default class Calculator extends Component {
 
 
     render() {
-    this.controller.update =  () => this.forceUpdate();
+    this.controller.reRender =  () => this.forceUpdate();
         return (
             <div>
                 <Display displayText={this.controller.display} />
-                <Keyboard keyboard={this.controller.keys}  pressedKey={(key: Key) => this.controller.receiveKey(key)}  />
+                <Keyboard keyboard={this.controller.keys}  pressedKey={(key: Key) => this.controller.handleIncomingKey(key)}  />
             </div>);
     }
 }
