@@ -84,7 +84,7 @@ describe('Simulate add operaiont', () => {
       
         if (key3) {
 
-            controller.receiveKey(key3);
+            controller.handleIncomingKey(key3);
             
             expect(controller.history.entry).toBe(3)
         }
@@ -98,8 +98,8 @@ describe('Simulate add operaiont', () => {
         const key4 = controller.keys.find(c => c.caption === '4');
         const key5 =  controller.keys.find(c => c.caption === '5');
         if (key4 && key5) {
-            controller.receiveKey(key4);
-            controller.receiveKey(key5);
+            controller.handleIncomingKey(key4);
+            controller.handleIncomingKey(key5);
             
             expect(controller.history.entry).toBe(45)
         }
@@ -115,9 +115,9 @@ describe('Simulate add operaiont', () => {
         const keyPlus =  controller.keys.find(c => c.caption === '+');
 
         if (key4 && key5 && keyPlus) {
-            controller.receiveKey(key4);
-            controller.receiveKey(key5);
-            controller.receiveKey(keyPlus);
+            controller.handleIncomingKey(key4);
+            controller.handleIncomingKey(key5);
+            controller.handleIncomingKey(keyPlus);
             expect(controller.history.memory).toBe(45);
            
         }
@@ -131,9 +131,9 @@ describe('Simulate add operaiont', () => {
         const keyPlus =  controller.keys.find(c => c.caption === '+');
 
         if (key4 && key5 && keyPlus) {
-            controller.receiveKey(key4);
-            controller.receiveKey(key5);
-            controller.receiveKey(keyPlus);
+            controller.handleIncomingKey(key4);
+            controller.handleIncomingKey(key5);
+            controller.handleIncomingKey(keyPlus);
             expect(controller.history.entry).toBe(0);
            
         }
@@ -149,10 +149,10 @@ describe('Simulate add operaiont', () => {
         const keyPlus =  controller.keys.find(c => c.caption === '+');
 
         if (key4 && key5 && keyPlus && key7) {
-            controller.receiveKey(key4);
-            controller.receiveKey(key5);
-            controller.receiveKey(keyPlus);
-            controller.receiveKey(key7);
+            controller.handleIncomingKey(key4);
+            controller.handleIncomingKey(key5);
+            controller.handleIncomingKey(keyPlus);
+            controller.handleIncomingKey(key7);
 
             const entry = controller.history.entry;
 

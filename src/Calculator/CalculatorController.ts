@@ -3,7 +3,6 @@ import { nullOperation, equalOperation } from './../model/nullOperation';
 import { allClearOperation } from './../model/allClearOperation';
 import { PerformOperationType } from './../model/PerformOperationType';
 import { BeepSound } from './BeepSound';
-import { setTimeout } from 'timers';
 import Key from '../model/Key';
 import { addOperation } from '../model/addOperation';
 import { subtractOperation } from '../model/subtractOperation';
